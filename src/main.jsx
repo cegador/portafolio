@@ -26,7 +26,7 @@ if (reduce.matches) {
 let raf = 0;
 function applyDepth() {
   raf = 0;
-  const on = !reduce.matches;
+  const on = !reduce.matches && !window.matchMedia('(max-width: 767px)').matches;
   const vh = window.innerHeight;
   document.querySelectorAll('[data-reveal]').forEach((el) => {
     if (!on) { el.style.transform = ''; el.style.opacity = ''; return; }
@@ -43,3 +43,8 @@ const onScroll = () => { if (!raf) raf = requestAnimationFrame(applyDepth); };
 window.addEventListener('scroll', onScroll, { passive: true });
 window.addEventListener('resize', onScroll);
 onScroll();
+
+// En móvil, tocar un párrafo recortado de una tarjeta lo expande o contrae
+document.querySelectorAll('main article p').forEach((p) => {
+  p.addEventListener('click', () => p.classList.toggle('abierto'));
+});

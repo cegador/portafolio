@@ -192,3 +192,43 @@ a:focus-visible,button:focus-visible{outline:2px solid #393186;outline-offset:2p
 @keyframes es-blink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
 @keyframes es-type{0%{transform:scaleX(0)}35%,85%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;transform:none!important;animation:none!important}}
+
+/* ---------- Ajustes para móvil ---------- */
+@media (max-width: 767px) {
+  body { font-size: 15px; line-height: 24px; }
+  [style*="font-size:18px"] { font-size: 16px !important; line-height: 26px !important; }
+
+  /* Menos aire vertical entre secciones */
+  main section { padding-bottom: 56px !important; }
+  #experiencia { padding-top: 48px !important; gap: 40px !important; }
+  [style*="padding-block:48px"] { padding-block: 32px !important; }
+  [style*="margin-bottom:48px"] { margin-bottom: 28px !important; }
+  footer > div { padding-top: 56px !important; gap: 40px !important; }
+
+  /* Bloques de estadística e ilustraciones más compactos */
+  [style*="min-height:220px"] { min-height: 150px !important; padding: 20px !important; }
+  [style*="min-height:140px"] { min-height: 110px !important; padding: 16px !important; }
+  [style*="font-size:48px;line-height:54px"] { font-size: 40px !important; line-height: 44px !important; }
+
+  /* Menos texto: párrafos de tarjetas recortados, toque para ver completo */
+  main article p {
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+    overflow: hidden; cursor: pointer;
+  }
+  main article p.abierto { -webkit-line-clamp: unset; display: block; }
+  #herramientas p { display: none; }
+
+  /* Línea de tiempo de experiencia en vertical */
+  #experiencia ol { grid-template-columns: 1fr !important; min-width: 0 !important; gap: 28px !important; }
+  #experiencia ol > span { top: 8px !important; bottom: 8px; left: 7px !important; right: auto !important; width: 2px; height: auto !important; }
+  #experiencia ol > li { padding-top: 0 !important; padding-left: 36px !important; }
+  #experiencia ol > li > span:first-child { top: 4px !important; }
+  #experiencia div[style*="overflow-x:auto"] { overflow: visible !important; }
+
+  /* Formación */
+  [style*="text-align:right"] { text-align: left !important; margin-left: 0 !important; }
+  #experiencia [style*="justify-content:space-between;font:400 13px"] span:nth-child(even) { display: none; }
+
+  /* Certificaciones */
+  #credenciales ul { gap: 20px 12px !important; }
+}
