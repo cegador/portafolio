@@ -232,3 +232,11 @@ a:focus-visible,button:focus-visible{outline:2px solid #393186;outline-offset:2p
   /* Certificaciones */
   #credenciales ul { gap: 20px 12px !important; }
 }
+
+/* ---------- Ajustes para escritorio ---------- */
+@media (min-width: 768px) {
+  #porque > div:last-child { align-items: center !important; }
+}
+@media (min-width: 1024px) {
+  #herramientas > div:last-child { grid-template-columns: repeat(5, 1fr) !important; gap: 20px !important; }
+}
